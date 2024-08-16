@@ -3,7 +3,6 @@ import { CustomValidationError } from "../error/customValidationError.js";
 import {CustomPrismaError} from "../error/customPrismaError.js";
 
 export const errorMiddleware = async (err, req, res, next) => {
-    console.log('err');
     if (err instanceof ResponseError) {
         res.status(err.status).json({
             errors: err.message

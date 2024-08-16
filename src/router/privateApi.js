@@ -11,7 +11,7 @@ api.use(authenticateJWT);
 api.get('/api/users/current', userController.get);
 api.get('/api/users/tasks', taskController.getMyTask);
 api.put('/api/users/current', userController.update);
-api.delete('/api/users/logout', userController.logout);
+api.delete('/api/users/:userId', userController.remove);
 
 
 // PROJECT  API

@@ -5,7 +5,7 @@ const create = async (req, res, next) => {
     try {
         const request = req.body;
         const result = await projectService.create(request);
-        res.status(200).json({
+        res.status(201).json({
             data: result
         });
     } catch (e) {

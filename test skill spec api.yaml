@@ -44,6 +44,15 @@ components:
           type: string
         completed:
           type: boolean
+    UserUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        avatar:
+          type: string
 
 #security:
 #  - bearerAuth: []
@@ -123,13 +132,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+  /api/users/{user}:
     delete:
-      summary: Logout user
+      summary: Delete user
       security:
         - bearerAuth: []
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         '204':
-          description: User logged out
+          description: User remove
 
   /api/users/tasks:
     get:

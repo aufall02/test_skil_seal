@@ -4,8 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1c97f26-6928-46e7-b34d-a08f6271d901" name="Changes" comment="">
+    <list default="true" id="d1c97f26-6928-46e7-b34d-a08f6271d901" name="Changes" comment="chore : add spec api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/projectController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/projectController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/taskController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/taskController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/error/customPrismaError.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/error/customPrismaError.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/errorMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/errorMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/privateApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/privateApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/projectService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/projectService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/taskService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/taskService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validation/taskValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/validation/taskValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validation/userValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/validation/userValidation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test skill spec api.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/test skill spec api.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,11 +135,27 @@
       <workItem from="1723702158587" duration="3070000" />
       <workItem from="1723705292758" duration="8378000" />
       <workItem from="1723728608106" duration="6240000" />
-      <workItem from="1723766945765" duration="190000" />
+      <workItem from="1723766945765" duration="487000" />
+      <workItem from="1723768868642" duration="3925000" />
+      <workItem from="1723773012615" duration="2138000" />
+      <workItem from="1723776926448" duration="4802000" />
     </task>
+    <task id="LOCAL-00001" summary="chore : add spec api">
+      <option name="closed" value="true" />
+      <created>1723767269975</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1723767269975</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore : add spec api" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore : add spec api" />
   </component>
 </project>

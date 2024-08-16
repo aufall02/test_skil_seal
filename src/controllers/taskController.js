@@ -5,8 +5,9 @@ const create = async (req, res, next) => {
         const user = req.user;
         const projectId = req.params.projectId;
         const request = req.body;
+        console.log(projectId,'dsfs')
         const result = await taskService.create(user,projectId,request);
-        res.status(200).json({
+        res.status(201).json({
             data: result
         });
     } catch (e) {

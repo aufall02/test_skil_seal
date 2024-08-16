@@ -9,6 +9,16 @@ import {getTaskValidation, updateTaskValidation} from "../validation/taskValidat
 const create = async (request) => {
     const project = validate(createProjectValidation, request);
 
+    const totalProjectInDb = await prismaClient.project.count({
+        where: {
+            name: project.name,
+        }
+    });
+
+    if (totalProjectInDb >= 1) {
+        throw new ResponseError(400, "Project already exist");
+    }
+
     return prismaClient.project.create({
         data: {
             name: project.name

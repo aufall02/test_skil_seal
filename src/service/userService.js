@@ -95,7 +95,7 @@ const update = async (request) => {
 
     const totalUserInDatabase = await prismaClient.user.count({
         where: {
-            email: user.email
+            id: user.id
         }
     });
 
@@ -112,24 +112,32 @@ const update = async (request) => {
         data.password = await bcrypt.hash(user.password, 10);
     }
 
+    if (user.avatar) {
+        data.avatar = user.avatar;
+    }
+
+
+
     return prismaClient.user.update({
         where: {
-            email: user.email
+            id: user.id
         },
         data: data,
         select: {
             email: true,
-            name: true
+            name: true,
+            avatar: true
         }
     });
 };
 
-const logout = async (email) => {
-    email = validate(getUserValidation, email);
+const remove = async (userId) => {
+    userId = validate(getUserValidation, userId);
+    console.log(userId)
 
     const user = await prismaClient.user.findUnique({
         where: {
-            email: email
+            id: userId
         }
     });
 
@@ -137,17 +145,13 @@ const logout = async (email) => {
         throw new ResponseError(404, 'user not found')
     }
 
-    return prismaClient.user.update({
+
+
+    return prismaClient.user.delete({
         where: {
-            email: email
-        },
-        data: {
-            token: null
-        },
-        select: {
-            email: true
+            id: userId
         }
-    })
+    });
 };
 
 export default {
@@ -155,5 +159,5 @@ export default {
     login,
     get,
     update,
-    logout
+    remove
 };

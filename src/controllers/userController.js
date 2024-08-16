@@ -3,7 +3,7 @@ import userService from "../service/userService.js";
 const register = async (req, res, next) => {
     try {
         const result = await userService.register(req.body);
-        res.status(200).json({
+        res.status(201).json({
             data: result
         });
     } catch (e) {
@@ -39,10 +39,9 @@ const get = async (req, res, next) => {
 
 const update = async (req, res, next) => {
     try {
-        const username = req.user.username;
+        const id = req.user.id;
         const request = req.body;
-
-        request.username = username;
+        request.id = id
 
         const result = await userService.update(request);
 
@@ -54,10 +53,9 @@ const update = async (req, res, next) => {
     }
 };
 
-const logout = async (req, res, next) => {
+const remove = async (req, res, next) => {
     try {
-        await userService.logout(req.user.username)
-
+        await userService.remove(req.params.userId)
         res.status(200).json({
             data: "OK"
         });
@@ -72,5 +70,5 @@ export default {
     login,
     get,
     update,
-    logout
+    remove
 };

@@ -31,6 +31,9 @@ export class CustomPrismaError extends Error {
             case 'P2026':
                 this.message = `The current database connection is lost.`;
                 break;
+            case 'P2023':
+                this.message = `id not valid`;
+                break;
             default:
                 this.message = 'An unknown error occurred';
                 break;

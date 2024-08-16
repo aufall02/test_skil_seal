@@ -11,6 +11,20 @@ import {ResponseError} from "../error/responsError.js";
 const create = async (user, projectId,request) => {
     try {
         const task = validate(createTaskValidation, request);
+
+        const totalTaskInProject = await prismaClient.task.count({
+            where: {
+                projectId: projectId,
+                title: task.title,
+            }
+        });
+
+
+        if (totalTaskInProject >= 1) {
+            throw new ResponseError(400, "Task already exist");
+        }
+
+
         const result = await prismaClient.task.create({
             data: {
                 title: task.title,
@@ -40,6 +54,7 @@ const create = async (user, projectId,request) => {
         });
         return result;
     }catch (error){
+        console.log(error)
         if (error instanceof Prisma.PrismaClientKnownRequestError) {
             throw new CustomPrismaError(error);
         } else {
@@ -111,12 +126,11 @@ const getMyTask = async (user) => {
 };
 //
 const update = async (user, taskId,projectId,request) => {
-    request.projectId = projectId;
     const task = validate(updateTaskValidation, request);
 
     const totalTaskInDb = await prismaClient.task.count({
         where: {
-            projectId: task.projectId,
+            projectId: projectId,
             userId: user.id,
             id : taskId,
         }
