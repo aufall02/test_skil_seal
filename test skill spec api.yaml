@@ -49,6 +49,52 @@ components:
 #  - bearerAuth: []
 
 paths:
+  /api/users/login:
+    post:
+      summary: User login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: User logged in
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+
+  /api/users:
+    post:
+      summary: Register a new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
   /api/users/current:
     get:
       summary: Get current user
@@ -100,52 +146,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Task'
 
-  /api/users/login:
-    post:
-      summary: User login
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                password:
-                  type: string
-      responses:
-        '200':
-          description: User logged in
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  token:
-                    type: string
 
-  /api/users:
-    post:
-      summary: Register a new user
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                email:
-                  type: string
-                password:
-                  type: string
-      responses:
-        '201':
-          description: User created successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
 
   /api/projects:
     post:
